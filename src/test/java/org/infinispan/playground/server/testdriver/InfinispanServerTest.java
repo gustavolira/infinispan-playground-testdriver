@@ -3,6 +3,8 @@ package org.infinispan.playground.server.testdriver;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
+import java.nio.file.Paths;
+
 import javax.transaction.HeuristicMixedException;
 import javax.transaction.HeuristicRollbackException;
 import javax.transaction.NotSupportedException;
@@ -31,10 +33,9 @@ import org.junit.Test;
 public class InfinispanServerTest {
    @ClassRule
    public static final InfinispanServerRule SERVERS =
-         InfinispanServerRuleBuilder.config("infinispan-cluster.xml")
+         InfinispanServerRuleBuilder.config(Paths.get("src/test/resources/infinispan-cluster.xml").toAbsolutePath().toString())
                .numServers(2)
-               .runMode(ServerRunMode.CONTAINER)
-               .property(TestSystemPropertyNames.INFINISPAN_TEST_SERVER_BASE_IMAGE_NAME, "infinispan/server:11.0.0.Alpha1-3")
+               .runMode(ServerRunMode.FORKED)
                .build();
 
    @Rule
