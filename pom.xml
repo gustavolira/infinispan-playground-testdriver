@@ -5,13 +5,26 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
-        <infinispan.version>11.0.0-SNAPSHOT</infinispan.version>
+        <infinispan.version>11.0.1.Final-redhat-00001</infinispan.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.infinispan</groupId>
             <artifactId>infinispan-server-testdriver-junit4</artifactId>
             <version>${infinispan.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.infinispan</groupId>
+            <artifactId>infinispan-server-testdriver-core</artifactId>
+            <version>${infinispan.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.infinispan</groupId>
+            <artifactId>infinispan-server-runtime</artifactId>
+            <version>${infinispan.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
